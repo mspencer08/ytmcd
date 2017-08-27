@@ -19,7 +19,7 @@ And for some general Q/A (please correct me if I am wrong via issue or PR):
 
 ##### Why `-f bestaudio -f m4a` instead of `-x --audio-format mp3 --audio-quality 0`?
 
-See [this](https://www.reddit.com/r/DataHoarder/comments/6w37ec/ytmcd_a_sensible_selection_of_youtubedl_flags_to/dm5anr1/) reddit thread. [Here](https://superuser.com/a/846856) is another great explanation.
+See [this](https://www.reddit.com/r/DataHoarder/comments/6w37ec/ytmcd_a_sensible_selection_of_youtubedl_flags_to/dm5anr1/) reddit thread for a wonderful explanation by [/u/SirMaster](https://www.reddit.com/user/SirMaster). [Here](https://superuser.com/a/846856) is another great explanation.
 
 ##### Why no `--restrict-filenames`?
 
