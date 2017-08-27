@@ -1,36 +1,29 @@
 # ytmcd
 YouTube Music Channel Downloader.
 
-Basically a sensible selection of youtube-dl flags to download music from music channels in bulk!
+A sensible selection of youtube-dl flags to download music from music channels in bulk!
 
 If you are using this for yourself, feel free to ignore file `downloaded` as that is for my own personal record, and be sure to edit `channels` to your own preferences.
 
 
 ### Remarks
 
-Refer to the man pages for my `youtube-dl` flag choices, but here are some points worth mentioning:
+Refer to the man page for my `youtube-dl` flag choices, but here are some points worth mentioning:
 
 * `--download-archive downloaded`: sucessful downloads will have their video ids listed here, which `youtube-dl` will ignore in subsequent runs
 * `--geo-bypass`: useful for a lot of the Asian songs (thanks SONY Japan...)
-* `--max-filesize 128m`: Usually amounts to 2.5 hour files with the current audio quality settings; fits most reasonable-length music mixes and avoids annoying 10-hour novelty videos
-* `--add-metadata`: Writes the video title to ID3 title and the channel name to ID3 artist, in the case of MP3 files
+* `--max-filesize 128m`: Usually amounts to 2-3 hour files in ytmcd's case, fits most reasonable-length music mixes and avoids annoying 10-hour novelty videos
+* `--add-metadata`: Writes the video's metadata (e.g. title becomes title, channel name becomes artist) to the downloaded audio file
 
 And for some general Q/A (please correct me if I am wrong via issue or PR):
 
-##### Why high-quality MP3 when you can get the FLAC audio?
+##### Why `-f bestaudio -f m4a` instead of `-x --audio-format mp3 --audio-quality 0`?
 
-* FLAC metadata tagging (vorbis format) is weird, ID3 on MP3 is much more common and established
-* I personally don't have terabytes on terabytes of storage space
-* The transcoding overhead (`youtube-dl` appears to encode FLAC from the downloaded webm audio much faster, MP3 is slower as it is a lossy compression format) acts as a great time buffer so as to not get rate-limited or ip blocked 
-* I don't have super sensitive ears; MP3 at high bitrates is good enough for me in most cases, though I do download my favorite songs as FLAC
-
-##### Why not download the native youtube MP4 AAC audio instead of transcoding from lossy to lossy (MP3)?
-
-AFAIK and to my own experience, `--add-metadata` does not currently work with `--audio-format aac` (the tags are left empty if you read `ytmcd`-ripped AAC files with a universal tag reader like `kid3`). Metadata tags are very important to me, though if this is not the case for you, it is an easy script modification. 
+See [this](https://www.reddit.com/r/DataHoarder/comments/6w37ec/ytmcd_a_sensible_selection_of_youtubedl_flags_to/dm5anr1/) reddit thread. [Here](https://superuser.com/a/846856) is another great explanation.
 
 ##### Why no `--restrict-filenames`?
 
-* I download lots of East Asian music and prefer to keep the original titles
+* I download lots of East Asian music and prefer to keep the original titles as filenames
 * My terminal can handle unicode
 
 
