@@ -15,9 +15,8 @@ youtube-dl \
     --no-continue                   \
     --geo-bypass                    \
     --download-archive downloaded   \
-    --extract-audio                 \
-    --audio-format mp3              \
-    --audio-quality 0               \
+    -f bestaudio                    \
+    -f m4a                          \
     --max-filesize 128m             \
     --add-metadata                  \
     --prefer-ffmpeg                 \
